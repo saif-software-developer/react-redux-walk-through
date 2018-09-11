@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// 6: Glue component with store by using the connect function 
 import {connect} from 'react-redux';
 
 	class Counter extends Component{
@@ -14,13 +15,14 @@ import {connect} from 'react-redux';
 
 
 	}
-
+	// 7: Map the store state to the props object in the component based on the attributes you need 
 	function mapStateToProps(state){
 		return {
 			count: state.count
 		}
 	}
 
+	// 8: Map the store functions to the props object in the component based on the functions you need 
 	function mapDispatchToProps(dispatch){
 		return {
 			onIncrementClick: () => {
@@ -32,5 +34,5 @@ import {connect} from 'react-redux';
 			}
 		}	
 	}
-
+// 9: Last step, pass the functions in step 7 and 8 to the connect function 
 export default connect(mapStateToProps,mapDispatchToProps) (Counter);
